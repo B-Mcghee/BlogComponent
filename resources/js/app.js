@@ -5,6 +5,9 @@ import PostList from './PostList.vue';
 import Post from './Post.vue';
 import ApolloClient from 'apollo-boost'
 import VueApollo from 'vue-apollo';
+import TopicList from './TopicList.vue'
+import AuthorPostList from './AuthorPostList.vue'
+
 
 window.Vue = Vue;
 Vue.use(VueRouter);
@@ -21,6 +24,23 @@ const routes = [
         path: '/post/:id',
         name: 'post',
         component: Post
+    },
+    {
+        path: '/topic/:slug',
+        name: 'topic',
+        component: TopicList
+    },
+    {
+        path: '/author/:id',
+        name: 'author',
+        component: AuthorPostList
+    },
+    {
+        path: '*',
+        name: '404',
+        component: {
+            template: '<div>Not Found</div>'
+        }
     }
 
 ];
@@ -40,6 +60,10 @@ const router = new VueRouter({
     routes
 });
 
+import moment from 'moment';
+
+Vue.filter("timeago", value => moment(value).fromNow());
+Vue.filter("longDate", value => moment(value).format("MMMM Do, YYYY"));
 const app = new Vue({
     el: '#app',
     router,
