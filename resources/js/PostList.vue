@@ -26,12 +26,6 @@ export default {
                     author{
                         id
                         name
-                        posts{
-                            title
-                            lead
-                            content
-                            created_at
-                        }
                         }
                     topic{
                         name

@@ -3,10 +3,11 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import PostList from './PostList.vue';
 import Post from './Post.vue';
-import ApolloClient from 'apollo-boost'
+import ApolloClient from 'apollo-boost';
 import VueApollo from 'vue-apollo';
 import TopicList from './TopicList.vue'
 import AuthorPostList from './AuthorPostList.vue'
+import NotFound from './components/error/NotFound.vue'
 
 
 window.Vue = Vue;
@@ -38,9 +39,7 @@ const routes = [
     {
         path: '*',
         name: '404',
-        component: {
-            template: '<div>Not Found</div>'
-        }
+        component: NotFound
     }
 
 ];
